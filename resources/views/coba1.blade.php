@@ -1,1 +1,1 @@
-yuk bisa yuk
+gabisaaa
