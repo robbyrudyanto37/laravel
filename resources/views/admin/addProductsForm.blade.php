@@ -17,7 +17,7 @@
         </div>
     @endif
 
-    <form action="{{route('addProducts')}}" method="POST">
+    <form action="{{route('addProducts')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -44,7 +44,10 @@
                 <input type="number" class="form-control" name="price">
             </div>
         </div>
-
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" class="form-control" name="proimg">
+        </div>
         <button type="submit" class="btn btn-primary">Add</button>
     </form>
 

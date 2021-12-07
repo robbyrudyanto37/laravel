@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,15 +28,15 @@ Route::get('/home', function () {
 
 Route::get('/about', function () {
     return view('content.about');
-});
+})->name('about')->middleware('verified');
 
 Route::get('/productscatalog', function () {
     return view('content.products');
-});
+})->name('productscatalog')->middleware('verified');
 
 Route::get('/shopcart', function () {
     return view('content.shoppingcart');
-});
+})->name('shopcart')->middleware('verified');
 
 Route::get('/single-product-jw1', function () {
     return view('sp.single-product jw1');
@@ -83,6 +84,24 @@ Route::post('addProducts', 'App\Http\Controllers\ProductsController@addProducts'
 Route::post('addCart', 'App\Http\Controllers\CartController@addCart')->name('addCart');
 
 Route::get('login','App\Http\Controllers\LoginController@login')->name('login_form');
+
+
+Route::get('/email/verify', function (){
+    return view('auth.verify');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (\Illuminate\Foundation\Auth\EmailVerificationRequest $request){
+    $request->fulfill();
+
+    return redirect('/');
+})->middleware('auth','signed')->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request){
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('status', 'verification-link-sent');
+})->middleware('auth','throttle:6,1')->name('verification.resend');
+
 
 Auth::routes();
 
