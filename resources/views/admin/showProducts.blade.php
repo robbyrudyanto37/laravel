@@ -25,6 +25,7 @@
                     <td align="center">{{$product->desc}}</td>
                     <td align="center">{{$product->stock}}</td>
                     <td align="center">{{$product->price}}</td>
+                    <td align="center">{{$product->image}}</td>
                 </tr>
             @endforeach
             </tbody>
