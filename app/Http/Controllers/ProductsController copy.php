@@ -11,7 +11,7 @@ class ProductsController extends Controller
         return view('admin.addProductsForm');
     }
 
-    public function products(){
+    public function  products(){
         $products = Products::all(); //select * from Products
         return view('admin.showProducts', compact('products'));
     }
@@ -42,17 +42,7 @@ class ProductsController extends Controller
             return redirect()->route('addProducts')->with('success', 'Product Added Successfully');
         }
         else{
-            $products = new Products();
-            //model->columnName = request('field_name');
-            $products->productName = \request('productName');
-            $products->productCategory = \request('productCategory');
-            $products->desc = \request('desc');
-            $products->stock = \request('stock');
-            $products->price = \request('price');
-
-            $products->save();
-            
-            return redirect()->route('addProducts')->with('success', 'Failed to Add Photo Product');
+            return redirect()->route('addProducts')->with('error', 'Failed to Add Product');
         }
     }
 }
