@@ -11,7 +11,7 @@ class ProductsController extends Controller
         return view('admin.addProductsForm');
     }
 
-    public function  products(){
+    public function products(){
         $products = Products::all(); //select * from Products
         return view('admin.showProducts', compact('products'));
     }

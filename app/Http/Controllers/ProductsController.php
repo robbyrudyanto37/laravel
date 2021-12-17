@@ -16,11 +16,6 @@ class ProductsController extends Controller
         return view('admin.showProducts', compact('products'));
     }
 
-    public function productscatalog(){
-        $productscatalog = Products::all(); //select * from Products
-        return view('content.products', compact('products'));
-    }
-
     public function addProducts(){
         $filename="";
         if(\request()->hasFile('proimg')) {

@@ -16,6 +16,10 @@ use Illuminate\Http\Request;
 |
 */
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/', function () {
     return view('content.home');
 });
@@ -31,10 +35,6 @@ Route::get('/userhome', function () {
 Route::get('/about', function () {
     return view('content.about');
 })->name('about')->middleware('verified');
-
-Route::get('/productscatalog', function () {
-    return view('content.products');
-})->name('productscatalog')->middleware('verified');
 
 Route::get('/shopcart', function () {
     return view('content.shoppingcart');
@@ -77,6 +77,8 @@ Route::get('/single-product-jm2', function () {
 });
 
 Route::get('products', 'App\Http\Controllers\ProductsController@products')->name('products');
+Route::get('productscatalog', 'App\Http\Controllers\ProductsCatalog@productscatalog')->name('productscatalog');
+
 Route::get('cart', 'App\Http\Controllers\CartController@cart')->name('cart');
 
 Route::get('productsform', 'App\Http\Controllers\ProductsController@form')->name('productsform');
@@ -105,6 +107,3 @@ Route::post('/email/verification-notification', function (Request $request){
 })->middleware('auth','throttle:6,1')->name('verification.resend');
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

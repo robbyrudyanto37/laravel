@@ -38,15 +38,15 @@
     <div class="featured container no-gutter">
         <div class="row posts">
             <div class="item new col-md-4">
-              @foreach($productscatalog as $product)
+              @foreach($productscatalog as $item)
                 <tr>
                     <td align="center">{{$no++}}</td>
-                    <td align="center">{{$product->productName}}</td>
-                    <td align="center">{{$product->productCategory}}</td>
-                    <td align="center">{{$product->desc}}</td>
-                    <td align="center">{{$product->stock}}</td>
-                    <td align="center">{{$product->price}}</td>
-                    <td align="center">{{$product->image}}</td>
+                    <td align="center">{{$item->productName}}</td>
+                    <td align="center">{{$item->productCategory}}</td>
+                    <td align="center">{{$item->desc}}</td>
+                    <td align="center">{{$item->stock}}</td>
+                    <td align="center">{{$item->price}}</td>
+                    <td align="center">{{$item->image}}</td>
                 </tr>
             @endforeach
             </div>
