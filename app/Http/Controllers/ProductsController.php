@@ -16,6 +16,11 @@ class ProductsController extends Controller
         return view('admin.showProducts', compact('products'));
     }
 
+    public function productscatalog(){
+        $productscatalog = Products::all(); //select * from Products
+        return view('content.products', compact('products'));
+    }
+
     public function addProducts(){
         $filename="";
         if(\request()->hasFile('proimg')) {
@@ -49,6 +54,7 @@ class ProductsController extends Controller
             $products->desc = \request('desc');
             $products->stock = \request('stock');
             $products->price = \request('price');
+            $products->image = "assets/images/cart.jpg";
 
             $products->save();
             

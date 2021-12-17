@@ -36,88 +36,19 @@
     </div>
   
     <div class="featured container no-gutter">
-
         <div class="row posts">
-            <div id="1" class="item new col-md-4">
-              <a href="/single-product-jw1">
-                <div class="featured-item">
-                  <img src="assets/images/jw1_4.jpg" alt="Item 1">
-                  <h4>Denim Ladies Light Blue</h4>
-                  <h6>Rp 275,000</h6>
-                </div>
-              </a>
-            </div>
-            <div id="2" class="item high col-md-4">
-              <a href="/single-product-jw2">
-                <div class="featured-item">
-                  <img src="assets/images/jw2_1.jpeg" alt="Item 2">
-                  <h4>Denim Ladies Black</h4>
-                  <h6>Rp 275,000</h6>
-                </div>
-              </a>
-            </div>
-            <div id="3" class="item low col-md-4">
-              <a href="/single-product-hoodie">
-                <div class="featured-item">
-                  <img src="assets/images/hoodie1_1.jpeg" alt="Item 3">
-                  <h4>Greyish Unisex Hoodie</h4>
-                  <h6>Rp 350,000</h6>
-                </div>
-              </a>
-            </div>
-            <div id="4" class="item low col-md-4">
-              <a href="/single-product-shoes">
-                <div class="featured-item">
-                  <img src="assets/images/s1_1.jpg" alt="Item 4">
-                  <h4>Unisex Orange-Camo Shoes</h4>
-                  <h6>Rp 500,000</h6>
-                </div>
-              </a>
-            </div>
-            <div id="5" class="item new high col-md-4">
-              <a href="/single-product-sbag1">
-                <div class="featured-item">
-                  <img src="assets/images/t1_1.jpg" alt="Item 5">
-                  <h4>Grey-Black SackBag</h4>
-                  <h6>Rp 100,000</h6>
-                </div>
-              </a>
-            </div>
-            <div id="6" class="item new col-md-4">
-              <a href="/single-product-sbag2">
-                <div class="featured-item">
-                  <img src="assets/images/t2_1.jpg" alt="Item 6">
-                  <h4>Navy-Maroon SackBag</h4>
-                  <h6>Rp 100,000</h6>
-                </div>
-              </a>
-            </div>
-            <div id="7" class="item new high col-md-4">
-              <a href="/single-product-jacket">
-                <div class="featured-item">
-                  <img src="assets/images/jk1_1.jpeg" alt="Item 7">
-                  <h4>Denim Sandwash Jacket</h4>
-                  <h6>Rp 650,000</h6>
-                </div>
-              </a>
-            </div>
-            <div id="8" class="item low new col-md-4">
-              <a href="/single-product-jm1">
-                <div class="featured-item">
-                  <img src="assets/images/jm1_1.jpeg" alt="Item 8">
-                  <h4>Denim Light Grey</h4>
-                  <h6>Rp 300,000</h6>
-                </div>
-              </a>
-            </div>
-            <div id="9" class="item new col-md-4">
-              <a href="/single-product-jm2">
-                <div class="featured-item">
-                  <img src="assets/images/jm2_1.jpeg" alt="Item 9">
-                  <h4>Denim Black</h4>
-                  <h6>Rp 300,000</h6>
-                </div>
-              </a>
+            <div class="item new col-md-4">
+              @foreach($productscatalog as $product)
+                <tr>
+                    <td align="center">{{$no++}}</td>
+                    <td align="center">{{$product->productName}}</td>
+                    <td align="center">{{$product->productCategory}}</td>
+                    <td align="center">{{$product->desc}}</td>
+                    <td align="center">{{$product->stock}}</td>
+                    <td align="center">{{$product->price}}</td>
+                    <td align="center">{{$product->image}}</td>
+                </tr>
+            @endforeach
             </div>
         </div>
     </div>
