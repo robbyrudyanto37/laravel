@@ -9,7 +9,7 @@ class ProductsCatalog extends Controller
 {
 
 public function productscatalog(){
-        $productscatalog = products::all(); //select * from Products
+        $productscatalog = Products::all(); //select * from Products
         return view('content.products', compact('productscatalog'));
     }
 }
