@@ -58,7 +58,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href='profile'><i class="fa fa-btn fa-user"></i>
                                         My Profile
                                     </a>
                                 </li>

@@ -38,9 +38,7 @@
     <div class="featured container no-gutter">
         <div class="row posts">
             <div class="item new col-md-4">
-              @foreach ($showproducts as $item)
-                  
-              @endforeach
+              
             </div>
         </div>
     </div>

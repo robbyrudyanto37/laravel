@@ -72,6 +72,8 @@ Route::get('/single-product-jm2', function () {
     return view('sp.single-product jm2');
 });
 
+Route::get('profile','App\Http\Controllers\UserController@profile')->name('profile');
+
 Route::get('products', 'App\Http\Controllers\ProductsController@products')->name('products');
 
 Route::get('cart', 'App\Http\Controllers\CartController@cart')->name('cart');
