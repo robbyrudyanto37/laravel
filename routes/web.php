@@ -24,10 +24,6 @@ Route::get('/', function () {
     return view('content.home');
 });
 
-Route::get('dashboard', function (){
-    return view('admin.dashboard');
-});
-
 Route::get('/userhome', function () {
     return view('content.home');
 });
@@ -106,4 +102,10 @@ Route::post('/email/verification-notification', function (Request $request){
     return back()->with('status', 'verification-link-sent');
 })->middleware('auth','throttle:6,1')->name('verification.resend');
 
+Route::group(['middleware' => ['auth','isAdmin']], function () {
 
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+});
