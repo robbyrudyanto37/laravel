@@ -2,6 +2,7 @@
 
 @section('konten')
 @include('navigation')
+
     <div class="featured-page">
       <div class="container">
         <div class="row">
@@ -34,21 +35,12 @@
         </div>
       </div>
     </div>
-  
     <div class="featured container no-gutter">
         <div class="row posts">
             <div class="item new col-md-4">
-              @foreach($productscatalog as $item)
-                <tr>
-                    <td align="center">{{$no++}}</td>
-                    <td align="center">{{$item->productName}}</td>
-                    <td align="center">{{$item->productCategory}}</td>
-                    <td align="center">{{$item->desc}}</td>
-                    <td align="center">{{$item->stock}}</td>
-                    <td align="center">{{$item->price}}</td>
-                    <td align="center">{{$item->image}}</td>
-                </tr>
-            @endforeach
+              @foreach ($showproducts as $item)
+                  
+              @endforeach
             </div>
         </div>
     </div>

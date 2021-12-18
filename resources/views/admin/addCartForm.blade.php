@@ -18,6 +18,7 @@
     @endif
 
     <form action="{{route('addCart')}}" method="POST">
+        @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>User</label>

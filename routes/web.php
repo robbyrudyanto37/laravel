@@ -73,7 +73,6 @@ Route::get('/single-product-jm2', function () {
 });
 
 Route::get('products', 'App\Http\Controllers\ProductsController@products')->name('products');
-Route::get('productscatalog', 'App\Http\Controllers\ProductsCatalog@productscatalog')->name('productscatalog');
 
 Route::get('cart', 'App\Http\Controllers\CartController@cart')->name('cart');
 
