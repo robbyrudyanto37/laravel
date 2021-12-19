@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
-use App\Http\Controllers\UserController;
+use app\Http\Controllers\UserController;
 
 
 /*
@@ -24,6 +25,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', function () {
     return view('content.home');
 });
+
+Route::get('/myprofile', function () {
+    return view('content.profile');
+})->middleware('verified');
 
 Route::get('/userhome', function () {
     return view('content.home');
@@ -73,8 +78,8 @@ Route::get('/single-product-jm2', function () {
     return view('sp.single-product jm2');
 });
 
-Route::get('profile', 'UserController@profile')->name('profile');
-Route::post('profile', 'UserController@update_avatar');
+//Route::get('profile', 'UserController@profile')->name('myprofile');
+Route::get('profile', 'app\Http\Controllers\UserController@profile')->name('profile');
 
 Route::get('products', 'App\Http\Controllers\ProductsController@products')->name('products');
 

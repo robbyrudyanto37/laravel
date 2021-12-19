@@ -8,8 +8,7 @@ use Image;
 class UserController extends Controller
 {
     public function profile() {
-        return view('content.profile', array('user' => Auth::user()));
-    }
+        return view('layoouts.profile', array('user' => Auth::user()) );    }
 
     public function update_avatar(Request $request){
 
@@ -24,6 +23,6 @@ class UserController extends Controller
             $user->save();
         }
 
-        return view('content.profile', array('user' => Auth::user()) );
+        return view('layouts.profile', array('user' => Auth::user()) );
     }
 }
