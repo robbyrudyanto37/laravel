@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -72,7 +73,8 @@ Route::get('/single-product-jm2', function () {
     return view('sp.single-product jm2');
 });
 
-Route::get('profile','App\Http\Controllers\UserController@profile')->name('profile');
+Route::get('profile', 'UserController@profile')->name('profile');
+Route::post('profile', 'UserController@update_avatar');
 
 Route::get('products', 'App\Http\Controllers\ProductsController@products')->name('products');
 
@@ -110,3 +112,7 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
     });
 
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
