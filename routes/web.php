@@ -83,6 +83,8 @@ Route::get('cart', 'App\Http\Controllers\CartController@cart')->name('cart');
 Route::get('productsform', 'App\Http\Controllers\ProductsController@form')->name('productsform');
 Route::get('cartform', 'App\Http\Controllers\CartController@form')->name('cartform');
 
+Route::get('users', 'App\Http\Controllers\UserController@form')->name('users');
+
 Route::post('addProducts', 'App\Http\Controllers\ProductsController@addProducts')->name('addProducts');
 Route::post('addCart', 'App\Http\Controllers\CartController@addCart')->name('addCart');
 
@@ -109,6 +111,14 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
 
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
+    });
+
+});
+
+Route::group(['middleware' => ['auth','isSuper']], function () {
+
+    Route::get('/super', function () {
+        return view('admin.dashboardsuper');
     });
 
 });
