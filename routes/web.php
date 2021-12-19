@@ -115,13 +115,13 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
 
 });
 
-Route::group(['middleware' => ['auth','isSuper']], function () {
+/*Route::group(['middleware' => ['auth','isSuper']], function () {
 
     Route::get('/super', function () {
         return view('admin.dashboardsuper');
     });
 
-});
+});*/
 
 Auth::routes();
 

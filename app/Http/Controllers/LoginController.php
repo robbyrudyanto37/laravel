@@ -12,11 +12,11 @@ class LoginController extends Controller
 
     protected function authenticated()
     {
-        if(Auth::user()->level == 'superadmin') // Super Admin Login
+        /*if(Auth::user()->level == 'superadmin') // Super Admin Login
         {
             return redirect('super')->with('status','Welcome to your dashboard');
-        }
-        elseif(Auth::user()->level == 'admin') // Admin Login
+        }*/
+        if(Auth::user()->level == 'admin') // Admin Login
         {
             return redirect('dashboard')->with('status','Welcome to your dashboard');
         }
