@@ -27,7 +27,7 @@ Route::get('/', function () {
 });
 
 Route::get('/myprofile', function () {
-    return view('content.profile');
+    return view('layouts.profile');
 })->middleware('verified');
 
 Route::get('/userhome', function () {
@@ -79,7 +79,7 @@ Route::get('/single-product-jm2', function () {
 });
 
 //Route::get('profile', 'UserController@profile')->name('myprofile');
-Route::get('profile', 'app\Http\Controllers\UserController@profile')->name('profile');
+Route::get('profile', 'App\Http\Controllers\UserController@profile')->name('profile');
 
 Route::get('products', 'App\Http\Controllers\ProductsController@products')->name('products');
 

@@ -1,14 +1,16 @@
 <?php
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use Auth;
-use Image;
+use Illuminate\Support\Facades\Auth;
+
+//use Image;
 
 class UserController extends Controller
 {
     public function profile() {
-        return view('layoouts.profile', array('user' => Auth::user()) );    }
+        return view('profile', array('user' => Auth::user()) );    }
 
     public function update_avatar(Request $request){
 
@@ -23,6 +25,6 @@ class UserController extends Controller
             $user->save();
         }
 
-        return view('layouts.profile', array('user' => Auth::user()) );
+        return view('profile', array('user' => Auth::user()) );
     }
 }
