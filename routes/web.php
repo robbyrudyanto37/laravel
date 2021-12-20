@@ -20,7 +20,7 @@ use app\Http\Controllers\UserController;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::get('/', function () {
     return view('content.home');
@@ -95,6 +95,7 @@ Route::post('addCart', 'App\Http\Controllers\CartController@addCart')->name('add
 
 Route::get('login','App\Http\Controllers\LoginController@login')->name('login_form');
 
+Auth::routes();
 
 Route::get('/email/verify', function (){
     return view('auth.verify');
@@ -112,22 +113,8 @@ Route::post('/email/verification-notification', function (Request $request){
     return back()->with('status', 'verification-link-sent');
 })->middleware('auth','throttle:6,1')->name('verification.resend');
 
-Route::group(['middleware' => ['auth','isAdmin']], function () {
-
+Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     });
-
 });
-
-/*Route::group(['middleware' => ['auth','isSuper']], function () {
-
-    Route::get('/super', function () {
-        return view('admin.dashboardsuper');
-    });
-
-});*/
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
